@@ -34,11 +34,16 @@
   file:
     path: ~/web
     state: directory
-
-- name: Copy index test page
-  template:
-    src: "files/index.js"
+- name: Copy index.js to remote machine
+  copy:
+    src: /path/to/local/files/index.js
     dest: "~/web/index.js"
+    #dest: /root/project/files/index.js
+    remote_src: yes
+#- name: Copy index test page
+  #template:
+    #src: "files/index.js"
+    #dest: "~/web/index.js"
 
 - name: Executing node
   shell: |
